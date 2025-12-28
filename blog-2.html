@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Essence of Tajweed: Why Every Letter Matters</title>
+         <link rel="shortcut icon" href="logo.png" type="png">
+    <!-- Load Tailwind CSS -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: Aileron;
+            src: url(fonts/Aileron-Regular.otf);
+            font-weight: 400;
+        }
+
+        body {
+            font-family: Aileron;
+        }
+
+        /* Custom styles for article content for better readability */
+        .article-content h2 {
+            @apply text-2xl font-bold text-gray-900 mt-8 mb-4 border-l-4 border-green-600 pl-3;
+        }
+
+        .article-content h3 {
+            @apply text-xl font-semibold text-gray-800 mt-6 mb-3;
+        }
+
+        .article-content p {
+            @apply text-lg text-gray-700 leading-relaxed mb-5;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            @apply list-disc list-inside space-y-2 mb-5 pl-4 text-gray-700;
+        }
+
+        .article-content strong {
+            @apply font-extrabold text-green-700;
+        }
+
+        .article-content blockquote {
+            @apply border-l-4 border-green-400 pl-4 py-2 italic text-gray-600 bg-green-50 rounded-r-lg;
+        }
+    </style>
+</head>
+
+<body class="text-gray-900">
+
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo (Cloned from image style) -->
+            <div class="text-2xl font-extrabold text-primary flex items-center">
+                <img src="logo.png" alt="logo" width="90px" height="90px">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 font-semibold text-text-dark/80">
+                <a href="index.html" style="font-size: 19px;"
+                    class="hover:text-primary transition duration-300">Home</a>
+                <a href="about.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">About
+                    Us</a>
+                <a href="services.html" style="font-size: 19px;"
+                    class="hover:text-primary transition duration-300">Services</a>
+                <a href="pricing.html" style="font-size: 19px;"
+                    class="hover:text-primary transition duration-300">Pricing</a>
+                <a href="contact.html" style="font-size: 19px;"
+                    class="hover:text-primary transition duration-300">Contact Us</a>
+            </nav>
+
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button"
+                class="md:hidden text-primary p-2 rounded-lg hover:bg-primary/10 transition duration-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+            <nav class="flex flex-col space-y-2 p-4 font-semibold text-text-dark/80">
+                <a href="index.html"
+                    class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Home</a>
+                <a href="about.html"
+                    class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">About Us</a>
+                <a href="services.html"
+                    class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Services</a>
+                <a href="pricing.html"
+                    class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Pricing</a>
+                <a href="contact.html"
+                    class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Contact Us</a>
+                <a href="services.html"
+                    class="block text-center mt-4 bg-primary text-white font-bold py-2 px-6 rounded-full hover:bg-secondary transition duration-300">
+                    Learn More
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <!-- 2. Main Content Area & Layout -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Breadcrumbs -->
+        <nav class="text-sm mb-6">
+            <a href="#" class="text-gray-600 hover:text-green-700">Blog</a>
+            <span class="mx-2 text-gray-400">/</span>
+            <span class="text-gray-700 font-medium">Importance of Tajweed</span>
+        </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
+
+            <!-- LEFT: Article Column (3/4 width) -->
+            <article class="lg:col-span-3">
+
+                <!-- Blog Post Hero/Header -->
+                <header class="pb-6 border-b border-gray-200 mb-8">
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                       The Importance of Tajweed in Quran Recitation
+                    </h1>
+                    <div class="flex items-center space-x-4 text-gray-500">
+                        <div class="flex items-center space-x-2">
+                            <!-- Author Avatar Placeholder -->
+                            <img src="https://images.unsplash.com/photo-1618190405497-00f284b5dda5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGtpZHMlMjBsZWFybmluZyUyMHF1cmFuJTIwb25saW5lfGVufDB8fDB8fHww"
+                                onerror="this.onerror=null;this.src='https://placehold.co/40x40/4ade80/ffffff?text=MA';"
+                                class="w-10 h-10 rounded-full object-cover border-2 border-green-600">
+                            <span class="text-sm font-semibold text-gray-700">By Muhammad Hassan (Admin)</span>
+                        </div>
+                        <span class="text-sm">•</span>
+                        <span class="text-sm">Published: December 25, 2024</span>
+                        <span class="text-sm hidden sm:inline">• 10 min read</span>
+                    </div>
+                </header>
+
+                <!-- Featured Image (Placeholder) -->
+                <figure class="mb-8 rounded-xl overflow-hidden shadow-xl">
+                    <img src="images/abt-page-sec.jpg"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1200x500/059669/ffffff?text=Featured+Image%3A+Tajweed+and+Quran';"
+                        alt="A featured image showing the importance of Tajweed and the Quran"
+                        class="w-full h-auto object-cover">
+                </figure>
+
+                <!-- Article Content -->
+                <div class="article-content">
+                    The Quran is the divine word of Allah, revealed with precision, balance, and profound wisdom. Every letter, sound, and pause carries meaning. For this reason, reciting the Quran correctly is not merely a matter of fluency—it is an act of responsibility and reverence. This is where Tajweed becomes essential.
+
+Tajweed is the science of Quranic pronunciation. It governs how each letter is articulated, how sounds interact, and how verses are recited exactly as they were revealed to the Prophet Muhammad ﷺ. Learning Tajweed is not about achieving perfection overnight; it is about honoring the Quran by reciting it correctly and with care
+
+<br><br>
+
+                    <h1 style="font-size: 40px;">What Is Tajweed?</h1>
+<br>
+                    Linguistically, the word Tajweed means “to improve” or “to make better.” In Quranic terms, Tajweed refers to a set of rules that ensure each letter is pronounced from its correct articulation point (makhraj) with its proper characteristics (sifaat).
+
+                    These rules cover areas such as:
+                    <br>
+
+Correct pronunciation of Arabic letters
+
+Lengthening (madd) and shortening of sounds
+
+Rules of noon sakinah and tanween
+
+Rules of meem sakinah
+
+Proper pauses and stops (waqf)
+
+Without Tajweed, recitation may sound fluent but can contain errors that alter meanings or compromise the beauty of the Quran.
+
+<br><br>
+
+                    <h1 style="font-size: 40px;">Why Tajweed Is Essential in Quran Recitation</h1>
+                    <br>
+                    The Quran was revealed orally before it was compiled in written form. The Prophet Muhammad ﷺ recited it to his companions, who memorized it exactly as they heard it. This oral tradition has been preserved through Tajweed.
+
+Allah says in the Quran:
+
+“And recite the Quran with measured recitation.”
+(Surah Al-Muzzammil 73:4)
+
+This verse highlights the obligation of reciting the Quran properly—not hastily or carelessly. Tajweed ensures that recitation follows this divine instruction.
+
+Incorrect pronunciation can sometimes change meanings entirely. For example, altering a single vowel or letter articulation can transform one word into another. While Allah is Merciful and rewards sincere effort, learning Tajweed is a means of striving for correctness and respect.
+
+<br><br>
+                    <h1 style="font-size: 40px;">Common Mistakes Without Tajweed</h1>
+<br>
+Many Muslims learn to read the Quran at a young age but do not receive formal Tajweed training. As a result, certain mistakes become habitual and difficult to correct later.
+<br>
+Common errors include:
+<br>
+<li>Confusing similar Arabic letters (such as س and ص, or ض and ظ)</li>
+
+<li>Incorrect elongation of sounds</li>
+
+<li>Ignoring nasalization (ghunnah)</li>
+
+<li>Improper stopping at the end of verses</li>
+<br>
+These mistakes often go unnoticed without a qualified teacher. Over time, they affect both recitation quality and confidence.
+<br><br>
+                    <h1 style="font-size: 40px;">Tajweed Enhances Spiritual Connection</h1>
+<br>
+Reciting the Quran correctly is not just a technical exercise—it deepens spiritual connection. When verses are recited with proper rhythm and pronunciation, their beauty becomes more apparent, and their impact on the heart increases.
+
+Many students report that after learning Tajweed, their concentration during recitation improves. They become more mindful of each word, which leads to greater reflection (tadabbur). This transforms recitation from a routine act into a meaningful spiritual experience.
+<br><br>
+                    <h1 style="font-size: 40px;">Learning Tajweed Requires Qualified Guidance</h1>
+                    <br>
+                    Tajweed cannot be mastered through self-study alone. While books and apps can support learning, real progress comes through direct correction by a qualified teacher. This is because many pronunciation errors are subtle and require expert listening.
+
+Traditionally, Tajweed was learned by sitting with a teacher who would listen, correct, and guide the student. Online Quran education now makes this process accessible globally without compromising quality.
+
+At Quran Wisdom Academy, Tajweed is taught using a structured, step-by-step approach. Students receive real-time corrections, repeated practice, and continuous feedback to ensure accuracy and confidence.
+
+<br><br>
+                    <h1 style="font-size: 40px;">Tajweed for Children and Adults</h1>
+                    <br>
+                    Some adults hesitate to learn Tajweed, believing it is too late or too difficult. This assumption is incorrect. Tajweed can be learned at any age with patience and consistency.
+
+For children, learning Tajweed early prevents the formation of bad habits and builds a strong foundation. For adults, it refines recitation and corrects long-standing errors.
+
+The Prophet ﷺ said:
+<br>
+“The one who recites the Quran fluently will be with the noble and righteous angels, and the one who struggles while reciting it will have two rewards.”
+
+This hadith reminds us that effort itself is rewarded. Learning Tajweed is a journey, and every sincere step holds value.
+<br><br>
+                    <h1 style="font-size: 40px;">Online Tajweed Learning: A Practical Solution</h1>
+                    <br>
+                    Online Tajweed classes provide flexibility, accessibility, and individualized attention. Students can learn at their own pace while receiving professional guidance. This model is especially effective for busy adults and parents seeking quality Islamic education for their children.
+
+With clear audio, live correction, and structured lessons, online Tajweed learning preserves the traditional teacher-student relationship while adapting to modern needs.
+
+Quran Wisdom Academy integrates classical Tajweed instruction with modern teaching tools to ensure students receive authentic, effective education.
+<br><br>
+                    <h1 style="font-size: 40px;">A Lifelong Investment</h1>
+                    <br>
+                    Learning Tajweed is not a one-time achievement—it is a lifelong investment in one’s relationship with the Quran. As recitation improves, confidence grows, and connection deepens.
+
+The Quran deserves to be recited as it was revealed. By committing to Tajweed, Muslims honor the words of Allah and uphold a tradition that has been preserved for centuries.
+
+Tajweed is not about perfection; it is about sincerity, effort, and respect. And with the right guidance, every student can improve their recitation and strengthen their bond with the Quran.
+            </article>
+
+            <!-- RIGHT: Sidebar (1/4 width) -->
+            <aside class="lg:col-span-1 space-y-8">
+
+                <!-- Call-to-Action for Courses (Future Auth Ready) -->
+                <div
+                    class="bg-green-600 text-white p-6 rounded-xl shadow-lg transform hover:scale-[1.02] transition duration-300">
+                    <h4 class="text-2xl font-bold mb-3">Ready to Start Learning?</h4>
+                    <p class="text-sm opacity-90 mb-4">Get started today with learning Quran from home , Quran Wisdom
+                        Academy is the perfect solution for you to learn Quran Online in a better and comfortable
+                        envoirment</p>
+                    <a href="courses.html"
+                        class="w-full text-center py-3 px-4 bg-white text-green-700 font-bold rounded-lg hover:bg-gray-100 transition duration-150 shadow-md block">
+                        Check Tajweed Course
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <div class="flex justify-center mt-8">
+        <a href="index.html"
+            class="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">
+            Back to Home
+        </a>
+    </div>
+    <br><br>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    
+    <script>
+    //     const arr = ['ahmed' , 'ali' , 'asghar' , 'akbar' , 'yaseen' , 'umer'];
+
+    //    const filterData = arr.filter((arrayItem , k) => {
+    //       return arrayItem.startsWith('a');
+    //     });
+
+    // const arr = [2 , 4 , 6 , 9 , 15 , 17];
+    // const filterData = arr.filter((key , value) => {
+    //     return key % 2;
+    // });
+
+    // console.log(filterData);
+
+    // const users = [
+    //     {
+    //         id : 1,
+    //         userName : 'Usman',
+    //         role : 'ui developer',
+    //         shift : 'morning'
+    //     },
+    //     {
+    //         id : 2,
+    //         userName : 'Ali',
+    //         role : 'wordpress dev',
+    //         shift : 'morning'
+    //     },
+    //     {
+    //         id : 3,
+    //         userName : 'Husnain',
+    //         role : 'sales exec',
+    //         shift : 'night'
+    //     },
+    //     {
+    //         id : 4,
+    //         userName : 'Kabeer',
+    //         role : 'sales exec',
+    //         shift : 'night'
+    //     },
+    //     {
+    //         id : 5,
+    //         userName : 'Shaheer',
+    //         role : 'sales exec',
+    //         shift : 'night'
+    //     },
+    //     {
+    //         id : 3,
+    //         userName : 'Baba',
+    //         role : 'Watch Men',
+    //         shift : 'night'
+    //     },
+    // ];
+
+    // const targetIndex = users.findIndex((item , index) => {
+    //     return item.id == 4;
+    // });
+    // users.splice(targetIndex , 1);
+    // console.log(users);
+
+    // const nightUsers = users.filter((item , key) => {
+    //     return item.shift == 'night'
+    // });
+    // console.log(nightUsers);
+
+    const users = [
+    {
+        id: 1,
+        userName: 'Ahmed',
+        title: "Software Engineer",
+        shift: 'morning'
+    },
+    {
+        id: 2,
+        userName: 'Aizaz',
+        title: "Graphics Designer",
+        shift: 'morning'
+    },
+    {
+        id: 3,
+        userName: 'Rafay',
+        title: "Sales Exec",
+        shift: 'night'
+    },
+    {
+        id: 4,
+        userName: 'raheel',
+        title: "Sales Exec",
+        shift: 'night'
+    },
+    {
+        id: 5,
+        userName: 'mustaqeem baba',
+        title: "watch man",
+        shift: 'night'
+    },
+];
+
+const targetIndex = users.findIndex((ahmedItem, index) => {
+    // console.log(item);
+    return ahmedItem.userName == 'raheel';
+});
+
+users.splice(targetIndex , 1);
+console.log(users);
+
+
+    </script>
+</body>
+</html>

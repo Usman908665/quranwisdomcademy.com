@@ -1,0 +1,446 @@
+<!-- HTML and Tailwind CSS for the Quran Academy Courses Page -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Services - Quran Wisdom Academy</title>
+     <link rel="shortcut icon" href="logo.png" type="png">
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for graphics -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+        * Font Simulation: Re-using the custom font loading setup.
+        */
+        @font-face {
+            font-family: Aileron;
+            src: url('fonts/Aileron-Regular.otf') ;
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            font-family: Aileron;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Set custom colors using Tailwind configuration */
+        :root {
+            --color-primary: 27 94 32; /* Deep Green: #1B5E20 */
+            --color-secondary: 56 142 60; /* Medium Green: #388E3C */
+            --color-accent: 76 175 80; /* Light Green: #4CAF50 */
+        }
+
+        .course-card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(27, 94, 32, 0.1), 0 4px 6px -2px rgba(27, 94, 32, 0.05);
+        }
+    </style>
+
+    <script>
+        // Custom Tailwind config to define the green color palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': 'rgb(var(--color-primary) / <alpha-value>)',
+                        'secondary': 'rgb(var(--color-secondary) / <alpha-value>)',
+                        'accent': 'rgb(var(--color-accent) / <alpha-value>)',
+                        'bg-light': '#f7f7f7',
+                        'text-dark': '#333333',
+                    },
+                    fontFamily: {
+                        sans: ['CustomFont', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bg-light text-text-dark antialiased">
+
+    <!-- Function to initialize Lucide Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+
+      <!-- Top Contact Bar -->
+    <div class="bg-primary text-white text-xs py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-end px-4 space-x-6">
+            <a href="tel:03153843745" class="flex items-center hover:text-accent transition duration-300">
+                <i data-lucide="phone" class="w-3 h-3 mr-1"></i>+923153843745
+            </a>
+            <a href="mailto:quranwisdomacademy78@gmail.com" class="flex items-center hover:text-accent transition duration-300">
+                <i data-lucide="mail" class="w-3 h-3 mr-1"></i> quranwisdomacademy78@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo (Cloned from image style) -->
+            <div class="text-2xl font-extrabold text-primary flex items-center">
+                 <img src="logo.png" alt="logo" width="90px" height="90px">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 font-semibold text-text-dark/80">
+                <a href="index.html"style="font-size: 19px;" class="hover:text-primary transition duration-300">Home</a>
+                <a href="about.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">About Us</a>
+                <a href="services.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Services</a>
+                <a href="pricing.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Pricing</a>
+                <a href="contact.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Contact Us</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="hidden md:block bg-primary text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-secondary transition duration-300">
+                Learn More
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-primary p-2 rounded-lg hover:bg-primary/10 transition duration-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+            <nav class="flex flex-col space-y-2 p-4 font-semibold text-text-dark/80">
+                <a href="index.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Home</a>
+                <a href="about.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">About Us</a>
+                <a href="services.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Services</a>
+                <a href="pricing.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Pricing</a>
+                <a href="contact.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Contact Us</a>
+                <a href="services.html" class="block text-center mt-4 bg-primary text-white font-bold py-2 px-6 rounded-full hover:bg-secondary transition duration-300">
+                   Learn More
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Page Header / Hero -->
+    <section class="bg-primary pt-16 pb-20 md:pt-24 md:pb-32 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-accent font-medium mb-3 tracking-widest uppercase text-lg">Our Comprehensive Curriculum</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-snug md:leading-tight mb-4">
+                Explore Our Quranic and Islamic Studies Courses
+            </h1>
+            <p class="text-xl max-w-4xl mx-auto text-white/90">
+                From foundational reading to advanced memorization and interpretation, we have a structured path for every learner.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Courses Section (Grid) -->
+    <section class="py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-text-dark mb-4">Core Educational Paths</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Select the path that aligns with your current knowledge and future goals. Each course is taught 1:1 by highly qualified scholars.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- Course Card 1: Noorani Qaida (Foundational) -->
+            <div class="bg-white rounded-xl p-8 course-card-shadow hover:shadow-xl transition duration-300 border-t-4 border-accent">
+                <div class="flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-6">
+                    <i data-lucide="pen-tool" class="w-8 h-8 text-accent"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-secondary mb-3">Quran Recitation Course</h3>
+                <p class="text-gray-600 mb-6 text-sm min-h-[4rem]">
+                    The essential starting point for beginners of all ages. Master the Arabic alphabet, pronunciation, and basic script rules.
+                </p>
+                <div class="space-y-3 text-sm mb-6">
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="book-open" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Focus: Letter identification and joining.</span>
+                    </div>
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="users" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Target: Non-native speakers, young children.</span>
+                    </div>
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="clock" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Goal: Smooth transition to reading the Quran.</span>
+                    </div>
+                </div>
+                <a href="courses.html" class="inline-flex items-center text-primary font-bold hover:text-secondary transition duration-300">
+                   View in Courses <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
+                </a>
+            </div>
+
+            <!-- Course Card 2: Tajweed (Essential) -->
+            <div class="bg-white rounded-xl p-8 course-card-shadow hover:shadow-xl transition duration-300 border-t-4 border-primary">
+                <div class="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
+                    <i data-lucide="volume-2" class="w-8 h-8 text-primary"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-secondary mb-3">Advanced Tafseer</h3>
+                <p class="text-gray-600 mb-6 text-sm min-h-[4rem]">
+                    Quran Tafsir Course is an educational program dedicated to the in-depth explanation and interpretation of the Holy Quran. 
+                </p>
+                <div class="space-y-3 text-sm mb-6">
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="graduation-cap" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Focus: Learning Perfect Tafseer from Basic to Advance.</span>
+                    </div>
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="book-check" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Target: Students who can read but seek perfection.</span>
+                    </div>
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="monitor" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Goal: Reciting the Quran fluently and correctly.</span>
+                    </div>
+                </div>
+                <a href="courses.html" class="inline-flex items-center text-primary font-bold hover:text-secondary transition duration-300">
+                    View in Courses <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
+                </a>
+            </div>
+
+            <!-- Course Card 3: Hifz (Memorization) -->
+            <div class="bg-white rounded-xl p-8 course-card-shadow hover:shadow-xl transition duration-300 border-t-4 border-secondary">
+                <div class="flex items-center justify-center w-16 h-16 bg-secondary/10 rounded-full mb-6">
+                    <i data-lucide="bookmark-plus" class="w-8 h-8 text-secondary"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-secondary mb-3">Hifz (Quran Memorization)</h3>
+                <p class="text-gray-600 mb-6 text-sm min-h-[4rem]">
+                    Structured, personalized mentorship programs for memorizing the entire Quran or specific Juzz/Surahs.
+                </p>
+                <div class="space-y-3 text-sm mb-6">
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="compass" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Focus: Custom Hifz schedule, revision (Murajah).</span>
+                    </div>
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="users" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Target: Dedicated students, advanced learners.</span>
+                    </div>
+                    <div class="flex items-center text-text-dark">
+                        <i data-lucide="star" class="w-4 h-4 text-primary mr-2 flex-shrink-0"></i>
+                        <span class="font-medium">Goal: Maintaining strong, consistent memorization.</span>
+                    </div>
+                </div>
+                <a href="courses.html" class="inline-flex items-center text-primary font-bold hover:text-secondary transition duration-300">
+                    View in Courses <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Courses & Specializations Section -->
+    <section class="bg-white py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-text-dark mb-4">Advanced Studies & Specializations</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Take your knowledge to the next level with specialized courses for deep understanding and teaching certification.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <!-- Specialization 1: Tafseer & Arabic -->
+                <div class="flex flex-col md:flex-row bg-bg-light p-6 rounded-xl border border-gray-200">
+                    <div class="md:w-1/3 flex items-center justify-center mb-4 md:mb-0">
+                        <div class="w-24 h-24 flex items-center justify-center rounded-full bg-primary/10 border-4 border-primary/20">
+                            <i data-lucide="scroll-text" class="w-10 h-10 text-primary"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 md:pl-6">
+                        <h3 class="text-2xl font-bold text-primary mb-2">Tafseer (Quranic Exegesis)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Go beyond recitation and understand the profound meanings, context, and practical application of the verses (Ayat). Includes essential Arabic morphology (Sarf) and syntax (Nahw).
+                        </p>
+                        <div class="flex space-x-4">
+                            <span class="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">Intermediate/Advanced</span>
+                            <span class="text-sm font-semibold text-secondary bg-secondary/10 px-3 py-1 rounded-full">Requires reading proficiency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specialization 2: Ijazah & Qira'at -->
+                <div class="flex flex-col md:flex-row bg-bg-light p-6 rounded-xl border border-gray-200">
+                    <div class="md:w-1/3 flex items-center justify-center mb-4 md:mb-0">
+                        <div class="w-24 h-24 flex items-center justify-center rounded-full bg-secondary/10 border-4 border-secondary/20">
+                            <i data-lucide="medal" class="w-10 h-10 text-secondary"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 md:pl-6">
+                        <h3 class="text-2xl font-bold text-primary mb-2">Ijazah & Qira'at (Certification)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Study the ten canonical readings (Qira'at) and work towards receiving an accredited Ijazah (teaching license) from our certified sheikhs.
+                        </p>
+                        <div class="flex space-x-4">
+                            <span class="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">Expert Level</span>
+                            <span class="text-sm font-semibold text-secondary bg-secondary/10 px-3 py-1 rounded-full">Formal Certification Track</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Features Section -->
+    <section class="py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-text-dark mb-4">Why Choose Quran Wisdom Academy?</h2>
+            <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                Our commitment to quality education and convenience sets us apart, ensuring a valuable and engaging learning experience.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            
+            <!-- Feature 1: Certified Scholars -->
+            <div class="p-6 bg-white rounded-xl course-card-shadow">
+                <div class="flex items-center justify-center w-16 h-16 mx-auto bg-primary rounded-full mb-4">
+                    <i data-lucide="briefcase" class="w-7 h-7 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-secondary mb-2">Certified Scholars</h3>
+                <p class="text-gray-600 text-sm">
+                    All our teachers hold Ijazah (certification) and university degrees in Islamic Studies, guaranteeing expert instruction.
+                </p>
+            </div>
+
+            <!-- Feature 2: Flexible Scheduling -->
+            <div class="p-6 bg-white rounded-xl course-card-shadow">
+                <div class="flex items-center justify-center w-16 h-16 mx-auto bg-primary rounded-full mb-4">
+                    <i data-lucide="calendar" class="w-7 h-7 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-secondary mb-2">24/7 Global Access</h3>
+                <p class="text-gray-600 text-sm">
+                    Book sessions at any time of day, ensuring flexibility for students across all time zones globally.
+                </p>
+            </div>
+
+            <!-- Feature 3: Personalized 1:1 Focus -->
+            <div class="p-6 bg-white rounded-xl course-card-shadow">
+                <div class="flex items-center justify-center w-16 h-16 mx-auto bg-primary rounded-full mb-4">
+                    <i data-lucide="user-check" class="w-7 h-7 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold text-secondary mb-2">Personalized 1:1</h3>
+                <p class="text-gray-600 text-sm">
+                    Every session is a private one-on-one class, allowing the teacher to focus solely on your pace and needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Final CTA Section (Dark Background) -->
+    <section class="bg-gray-800 text-white py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center space-y-8 lg:space-y-0">
+            <div class="lg:w-2/3 text-center lg:text-left">
+                <h2 class="text-4xl font-extrabold mb-3 leading-tight">Let's Start Online Quran Learning</h2>
+                <p class="text-lg text-white/80">Join thousands of students worldwide and begin your journey to spiritual growth.</p>
+            </div>
+            <div class="lg:w-1/3 flex justify-center lg:justify-end">
+                <a href="courses.html" class="bg-accent text-white font-bold text-lg py-3 px-10 rounded-full shadow-xl hover:bg-secondary transition duration-300 transform hover:scale-105">
+                    View Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-10 border-b border-gray-700 pb-10">
+                <!-- Column 1: Logo & Info -->
+                <div class="col-span-2 md:col-span-2">
+                    <div class="text-3xl font-extrabold text-white mb-4 flex items-center">
+                      <img src="logo.png" alt="logo" width="100px" height="100px">
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm max-w-sm">
+                        Dedicated to providing high-quality, accessible Quranic education to the global community.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61584341424836" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://x.com/quran_wisd88311" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/qura_nwisdomacademy/" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition duration-300">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-primary transition duration-300">Our Courses</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-primary transition duration-300">Pricing Plans</a></li>
+                         <li><a href="support.html" class="text-gray-400 hover:text-primary transition duration-300">Support</a></li>
+                        <li><a href="#articles" class="text-gray-400 hover:text-primary transition duration-300">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <a href="mailto:quranwisdomacademy78@gmail.com" class="text-gray-400 hover:text-primary transition duration-300">quranwisdomacademy78 <br> @gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <a href="tel:03153843745" class="text-gray-400 hover:text-primary transition duration-300">+923153843745</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <span class="text-gray-400">Karachi , Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter/CTA (Responsive) -->
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Stay updated with our latest offers.</p>
+                    <form>
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 mb-3 rounded-lg bg-gray-700 text-white border-none focus:ring-primary focus:border-primary">
+                        <button type="submit" onclick="notAvail()" class="w-full bg-primary text-white font-bold py-2 rounded-lg hover:bg-secondary transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center pt-8 text-sm text-gray-500">
+                &copy; 2025 Quran Wisdom Academy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu immediately when any link inside is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function notAvail(){
+            var alertMessage = alert("This is service is currently not available on our site ! We are willing to launch it as soon as possible");
+            alert(alertMessage);
+        }
+    </script>
+</body>
+</html>

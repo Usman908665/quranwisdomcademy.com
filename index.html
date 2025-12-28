@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quran Wisdom Academy - Home</title>
+  <link rel="shortcut icon" href="logo.png" type="png">
+  <style>
+    @font-face {
+        font-family: Aileron;
+        src: url(fonts/Aileron-Regular.otf);
+    }    
+    body{
+        font-family: Aileron;
+    }
+    a{
+        font-size: 18px;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#FAF8F3] text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="w-full bg-white shadow-sm py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4">
+      <div class="flex items-center gap-2">
+        <img src="logo.png" alt="logo" height="90px" width="90px">
+      </div>
+      <ul class="hidden md:flex gap-8 font-medium">
+        <li><a href="index.html" class="hover:text-green-600">Home</a></li>
+        <li><a href="login.html" class="hover:text-green-600">Pricing</a></li>
+        <li><a href="login.html" class="hover:text-green-600">Courses</a></li>
+        <li><a href="login.html" class="hover:text-green-600">Contact</a></li>
+      </ul>
+      <button onclick="redirectUser()" class="bg-green-700 text-white px-4 py-2 rounded-lg">Create Free Account</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative w-full">
+    <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/vector-1738323259141-18a69b6c1ba3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aXNsYW1pY3xlbnwwfHwwfHx8MA%3D%3D')] bg-cover"></div>
+
+    <div class="max-w-6xl mx-auto text-center py-24 px-4 relative z-10">
+      <h1 class="text-4xl md:text-5xl font-semibold text-green-800">
+       Introducing Quran Wisdom Academy <br> A complete Learning Management System
+      </h1>
+
+      <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+       A complete online platform for everyone to learn Quran from our professional tutors who are willing to teach Quran everyone by providing seamless support
+      </p>
+
+      <div class="mt-6 flex justify-center gap-4">
+        <a href="signup.html"
+          class="bg-green-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-800 transition">
+          Create a Free Account
+        </a>
+        <a href="free-trial-view.html"
+          class="bg-yellow-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-yellow-600 transition">
+          Review Free Trial
+        </a>
+      </div>
+    </div>
+
+    <!-- Image Slider -->
+    <div class="max-w-5xl mx-auto mt-10 px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <img src="images/quran-recitation.jpg" class="rounded-xl shadow-lg w-full h-64 object-cover">
+        <img src="images/tafseer.jpg" class="rounded-xl shadow-lg w-full h-64 object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="bg-green-800 text-white py-8 mt-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 text-center gap-6">
+
+      <div>
+        <p class="text-3xl font-bold">6+</p>
+        <p class="text-sm opacity-80">Our Courses</p>
+      </div>
+
+      <div>
+        <p class="text-3xl font-bold">5+</p>
+        <p class="text-sm opacity-80">Our Tutors</p>
+      </div>
+
+      <div>
+        <p class="text-3xl font-bold">100+</p>
+        <p class="text-sm opacity-80">Satisfied Students</p>
+      </div>
+
+      <div>
+        <p class="text-3xl font-bold">98%</p>
+        <p class="text-sm opacity-80">Flexible Pricing</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <section class="py-20 max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-semibold text-center text-green-800">🔥 Trending This Week</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+
+      <div class="bg-white shadow rounded-xl overflow-hidden">
+        <img src="images/quran-memorization.jpg" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="font-semibold text-xl mb-2">Quran Memorization</h3>
+          <p class="text-gray-600">Become a Hafiz / Hafiza in less time.</p>
+        </div>
+      </div>
+
+      <div class="bg-white shadow rounded-xl overflow-hidden">
+        <img src="images/quran-recitation.jpg" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="font-semibold text-xl mb-2">Quran Recitation</h3>
+          <p class="text-gray-600">Learn to pronounce Quran perfectly.</p>
+        </div>
+      </div>
+
+      <div class="bg-white shadow rounded-xl overflow-hidden">
+        <img src="images/noorani-quida.jpg" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="font-semibold text-xl mb-2">Noorani Qaida</h3>
+          <p class="text-gray-600">The most populer course on this site.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- Features Section -->
+  <section class="bg-gray-50 py-20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center text-green-800 mb-12">Why Choose Us</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-4xl mb-4">📚</div>
+          <h3 class="text-xl font-semibold mb-2">Expert Tutors</h3>
+          <p class="text-gray-600">Learn from qualified Islamic scholars and experts.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-semibold mb-2">Personalized Learning</h3>
+          <p class="text-gray-600">Customized lessons tailored to your learning pace.</p>
+        </div>
+        <div class="text-center">
+          <div class="text-4xl mb-4">⏰</div>
+          <h3 class="text-xl font-semibold mb-2">Flexible Scheduling</h3>
+          <p class="text-gray-600">Learn at your own time, anywhere in the world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-semibold text-center text-green-800 mb-12">Student Testimonials</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white shadow rounded-lg p-6"><br>
+        <p class="text-gray-600 mb-4">"Excellent platform for learning Quran. The tutors are very patient and knowledgeable."</p>
+        <p class="font-semibold text-green-800">Ahmed Khan</p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6"><br>
+        <p class="text-gray-600 mb-4">"I improved my Tajweed significantly. Highly recommended!"</p>
+        <p class="font-semibold text-green-800">Fatima Ali</p>
+      </div>
+      <div class="bg-white shadow rounded-lg p-6"><br>
+        <p class="text-gray-600 mb-4">"The best investment for my children's Islamic education."</p>
+        <p class="font-semibold text-green-800">Muhammad Usman</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-green-700 text-white py-16">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-semibold mb-4">Ready to Start Your Journey?</h2>
+      <p class="text-lg mb-8">Join thousands of students learning Quran with us today.</p>
+      <a href="signup.html" class="bg-yellow-500 text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">
+        Get Started Now
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="text-white font-semibold mb-4">About Us</h4>
+          <p class="text-sm">Quran Wisdom Academy - Your trusted platform for Quranic education.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+          <ul class="text-sm space-y-2">
+            <li><a href="index.html" class="hover:text-green-500">Home</a></li>
+            <li><a href="signup.html" class="hover:text-green-500">Courses</a></li>
+            <li><a href="signup.html" class="hover:text-green-500">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+          <ul class="text-sm space-y-2">
+            <li><a href="https://www.facebook.com/profile.php?id=61584341424836" class="hover:text-green-500">Facebook</a></li>
+            <li><a href="https://x.com/quran_wisd88311" class="hover:text-green-500">Twitter</a></li>
+            <li><a href="https://www.instagram.com/qura_nwisdomacademy/" class="hover:text-green-500">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 pt-8 text-center text-sm">
+        <p>&copy; 2024 Quran Wisdom Academy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script>
+    function redirectUser(){
+      window.location.href = "./signup.html";
+    }
+  </script>
+
+</body>
+</html>

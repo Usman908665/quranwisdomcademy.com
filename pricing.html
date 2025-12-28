@@ -1,0 +1,477 @@
+<!-- HTML and Tailwind CSS for the Quran Academy Pricing Page -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - Quran Wisdom Academy</title>
+     <link rel="shortcut icon" href="logo.png" type="png">
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for graphics -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+        * Font Simulation: Re-using the custom font loading setup.
+        */
+        @font-face {
+            font-family: Aileron;
+            src: url('fonts/Aileron-Regular.otf');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            font-family: Aileron;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Set custom colors using Tailwind configuration */
+        :root {
+            --color-primary: 27 94 32; /* Deep Green: #1B5E20 */
+            --color-secondary: 56 142 60; /* Medium Green: #388E3C */
+            --color-accent: 76 175 80; /* Light Green: #4CAF50 */
+        }
+
+        .pricing-card-shadow {
+            box-shadow: 0 20px 25px -5px rgba(27, 94, 32, 0.1), 0 10px 10px -5px rgba(27, 94, 32, 0.04);
+        }
+        .accordion-item:not(:last-child) {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        /* Custom styles for the active toggle button */
+        .toggle-active {
+            background-color: rgb(var(--color-primary));
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+    <script>
+        // Custom Tailwind config to define the green color palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': 'rgb(var(--color-primary) / <alpha-value>)',
+                        'secondary': 'rgb(var(--color-secondary) / <alpha-value>)',
+                        'accent': 'rgb(var(--color-accent) / <alpha-value>)',
+                        'bg-light': '#f7f7f7',
+                        'text-dark': '#333333',
+                    },
+                    fontFamily: {
+                        sans: ['CustomFont', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bg-light text-text-dark antialiased">
+
+    <!-- Function to initialize Lucide Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+
+     <!-- Top Contact Bar -->
+    <div class="bg-primary text-white text-xs py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-end px-4 space-x-6">
+            <a href="tel:03153843745" class="flex items-center hover:text-accent transition duration-300">
+                <i data-lucide="phone" class="w-3 h-3 mr-1"></i>+923153843745
+            </a>
+            <a href="mailto:quranwisdomacademy78@gmail.com" class="flex items-center hover:text-accent transition duration-300">
+                <i data-lucide="mail" class="w-3 h-3 mr-1"></i> quranwisdomacademy78@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo (Cloned from image style) -->
+            <div class="text-2xl font-extrabold text-primary flex items-center">
+                 <img src="logo.png" alt="logo" width="90px" height="90px">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 font-semibold text-text-dark/80">
+                <a href="index.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Home</a>
+                <a href="about.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">About Us</a>
+                <a href="services.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Services</a>
+                <a href="pricing.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Pricing</a>
+                <a href="contact.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Contact Us</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="hidden md:block bg-primary text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-secondary transition duration-300">
+                Learn More
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-primary p-2 rounded-lg hover:bg-primary/10 transition duration-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+            <nav class="flex flex-col space-y-2 p-4 font-semibold text-text-dark/80">
+                <a href="index.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Home</a>
+                <a href="about.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">About Us</a>
+                <a href="services.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Services</a>
+                <a href="pricing.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Pricing</a>
+                <a href="contact.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Contact Us</a>
+                <a href="services.html" class="block text-center mt-4 bg-primary text-white font-bold py-2 px-6 rounded-full hover:bg-secondary transition duration-300">
+                   Learn More
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Page Header / Hero -->
+    <section class="bg-primary pt-16 pb-20 md:pt-24 md:pb-32 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-accent font-medium mb-3 tracking-widest uppercase text-lg">Flexible Learning, Clear Value</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-snug md:leading-tight mb-4">
+                Find the Perfect Plan for Your Quranic Studies
+            </h1>
+            <p class="text-xl max-w-4xl mx-auto text-white/90">
+                We offer competitive pricing tailored to different learning paces and family needs. All plans include 1:1 live sessions with certified teachers.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 md:py-24 bg-bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-text-dark mb-4">Choose Your Plan</h2>
+            <p class="text-gray-600 max-w-xl mx-auto mb-12">
+                Select the package that best fits your needs, all featuring our certified tutors and flexible scheduling.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pricing Card 1: Basic -->
+                <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-primary/20">
+                    <div class="bg-primary/10 inline-block p-3 rounded-full mb-4">
+                         <i data-lucide="star" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-primary mb-2">Basic</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-extrabold text-text-dark">$16</span>
+                        <span class="text-gray-500 font-semibold">/ Month</span>
+                    </div>
+                    
+                    <ul class="text-left space-y-3 mb-8 text-gray-700">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> 4 Classes / Month
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> 1 Class / Week
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> $4 Per Class
+                        </li>
+                    </ul>
+                    
+                    <a href="course-checkout-redirection.html" class="block w-full bg-accent text-white font-bold py-3 rounded-full hover:bg-primary transition duration-300 shadow-md">
+                        Choose Plan
+                    </a>
+                </div>
+
+                <!-- Pricing Card 2: Standard (Featured) -->
+                <div class="bg-white p-8 rounded-xl shadow-2xl ring-4 ring-primary transition duration-300 transform scale-105">
+                    <div class="bg-primary/10 inline-block p-3 rounded-full mb-4">
+                         <i data-lucide="sparkles" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-primary mb-2">Standard</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-extrabold text-text-dark">$32</span>
+                        <span class="text-gray-500 font-semibold">/ Month</span>
+                    </div>
+                    
+                    <ul class="text-left space-y-3 mb-8 text-gray-700">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> 8 Classes / Month
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> 2 Classes / Week
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> $4 Per Class
+                        </li>
+                    </ul>
+                    
+                    <a href="course-checkout-redirection.html" class="block w-full bg-primary text-white font-bold py-3 rounded-full hover:bg-secondary transition duration-300 shadow-lg">
+                        Choose Plan
+                    </a>
+                </div>
+
+                <!-- Pricing Card 3: Premium -->
+                <div class="bg-white p-8 rounded-xl shadow-xl transition duration-300 hover:shadow-2xl border-t-4 border-primary/20">
+                    <div class="bg-primary/10 inline-block p-3 rounded-full mb-4">
+                         <i data-lucide="gem" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-primary mb-2">Premium</h3>
+                    <div class="mb-6">
+                        <span class="text-5xl font-extrabold text-text-dark">$48</span>
+                        <span class="text-gray-500 font-semibold">/  Month</span>
+                    </div>
+                    
+                    <ul class="text-left space-y-3 mb-8 text-gray-700">
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> 12 Classes / Month
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> 3 Classes / Week
+                        </li>
+                        <li class="flex items-center">
+                            <i data-lucide="check" class="w-5 h-5 text-primary mr-3 flex-shrink-0"></i> $4 Per Class
+                        </li>
+                    </ul>
+                    <a href="course-checkout-redirection.html" class="block w-full bg-accent text-white font-bold py-3 rounded-full hover:bg-primary transition duration-300 shadow-md">
+                        Choose Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-text-dark mb-3">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600">Common queries about our plans and enrollment process.</p>
+            </div>
+
+            <!-- Accordion-style FAQ -->
+            <div id="faq-accordion" class="rounded-xl shadow-lg border border-gray-200 divide-y divide-gray-200">
+                <!-- Item 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-text-dark hover:bg-bg-light transition duration-300 rounded-t-xl" data-target="faq-1">
+                       If I make a payment , then what will happen ?
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="accordion-content hidden p-5 pt-0 text-gray-600" id="faq-1">
+                        We will send you a confirmation email where you can access your course sheduled timings and days of classes. You can start learning by any platform.
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-text-dark hover:bg-bg-light transition duration-300" data-target="faq-2">
+                       Which screenshot format the website will approve ?
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="accordion-content hidden p-5 pt-0 text-gray-600" id="faq-2">
+                       There's a restriction is uploading the payment screenshot and that is you can simply upload your screenshot to Google Drive and then copy paste that drive link on the required field.
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-lg text-text-dark hover:bg-bg-light transition duration-300 rounded-b-xl" data-target="faq-3">
+                        What Payment methods are currently accepting ?
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-300 transform"></i>
+                    </button>
+                    <div class="accordion-content hidden p-5 pt-0 text-gray-600" id="faq-3">
+                        We are only accepting payments for Pakistani's via EasyPaisa and JazzCash , if you are an outsider you can simply transfer the payment using Binance Secure transaction. Note that we don't allow any type of upfront payments you can pay us full payment before the starting of the course. For more information <a href="contact.html" class="text-accent"> Contact Us </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    
+    <!-- Final CTA Section (Dark Background) -->
+    <section class="bg-gray-800 text-white py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center space-y-8 lg:space-y-0">
+            <div class="lg:w-2/3 text-center lg:text-left">
+                <h2 class="text-4xl font-extrabold mb-3 leading-tight">Let's Start Online Quran Learning</h2>
+                <p class="text-lg text-white/80">Join thousands of students worldwide and begin your journey to spiritual growth.</p>
+            </div>
+            <div class="lg:w-1/3 flex justify-center lg:justify-end">
+                <a href="courses.html" class="bg-accent text-white font-bold text-lg py-3 px-10 rounded-full shadow-xl hover:bg-secondary transition duration-300 transform hover:scale-105">
+                    View Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-10 border-b border-gray-700 pb-10">
+                <!-- Column 1: Logo & Info -->
+                <div class="col-span-2 md:col-span-2">
+                    <div class="text-3xl font-extrabold text-white mb-4 flex items-center">
+                      <img src="logo.png" alt="logo" width="100px" height="100px">
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm max-w-sm">
+                        Dedicated to providing high-quality, accessible Quranic education to the global community.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61584341424836" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://x.com/quran_wisd88311" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/qura_nwisdomacademy/" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition duration-300">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-primary transition duration-300">Our Courses</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-primary transition duration-300">Pricing Plans</a></li>
+                         <li><a href="support.html" class="text-gray-400 hover:text-primary transition duration-300">Support</a></li>
+                        <li><a href="#articles" class="text-gray-400 hover:text-primary transition duration-300">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <a href="mailto:quranwisdomacademy78@gmail.com" class="text-gray-400 hover:text-primary transition duration-300">quranwisdomacademy78 <br> @gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <a href="tel:03153843745" class="text-gray-400 hover:text-primary transition duration-300">+923153843745</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <span class="text-gray-400">Karachi , Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter/CTA (Responsive) -->
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Stay updated with our latest offers.</p>
+                    <form>
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 mb-3 rounded-lg bg-gray-700 text-white border-none focus:ring-primary focus:border-primary">
+                        <button type="submit" onclick="notAvail()" class="w-full bg-primary text-white font-bold py-2 rounded-lg hover:bg-secondary transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center pt-8 text-sm text-gray-500">
+                &copy; 2025 Quran Wisdom Academy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle and FAQ Accordion / Pricing Toggle -->
+    <script>
+        // --- Mobile Menu Toggle Logic ---
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 100); 
+            });
+        });
+
+        // --- FAQ Accordion Logic ---
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const targetId = header.getAttribute('data-target');
+                const content = document.getElementById(targetId);
+                const icon = header.querySelector('i');
+
+                // Close all other open content
+                document.querySelectorAll('.accordion-content').forEach(c => {
+                    if (c.id !== targetId && !c.classList.contains('hidden')) {
+                        c.classList.add('hidden');
+                        document.querySelector(`[data-target="${c.id}"] i`).classList.remove('rotate-180');
+                    }
+                });
+                
+                // Toggle clicked item
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // --- Pricing Toggle Logic ---
+        const pricingToggles = document.querySelectorAll('.pricing-toggle');
+        const priceValues = document.querySelectorAll('.price-value');
+        const pricePeriods = document.querySelectorAll('.price-period');
+        const annualSavers = document.querySelectorAll('.annual-saver');
+
+        function updatePricing(period) {
+            priceValues.forEach(priceElement => {
+                const isStandard = priceElement.closest('.bg-primary');
+                const newPrice = priceElement.getAttribute(`data-${period}`);
+                priceElement.textContent = newPrice;
+                
+                // Update currency size/color for the highlighted Standard plan
+                if (isStandard) {
+                    priceElement.previousElementSibling.classList.toggle('text-white', period === 'monthly');
+                    priceElement.previousElementSibling.classList.toggle('text-white/80', period === 'annual');
+                }
+            });
+
+            pricePeriods.forEach(periodElement => {
+                // Determine the new period text and apply styling
+                if (period === 'monthly') {
+                    periodElement.textContent = '/mo';
+                    periodElement.closest('div').classList.remove('flex', 'items-center', 'justify-center');
+                } else {
+                    periodElement.textContent = '/yr';
+                    periodElement.closest('div').classList.add('flex', 'items-center', 'justify-center');
+                }
+            });
+
+            annualSavers.forEach(saver => {
+                saver.classList.toggle('hidden', period === 'monthly');
+            });
+
+            // Update button styles
+            pricingToggles.forEach(button => {
+                if (button.getAttribute('data-period') === period) {
+                    button.classList.add('toggle-active');
+                    button.classList.remove('text-gray-600', 'hover:text-primary');
+                } else {
+                    button.classList.remove('toggle-active');
+                    button.classList.add('text-gray-600', 'hover:text-primary');
+                }
+            });
+        }
+
+        pricingToggles.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const period = e.currentTarget.getAttribute('data-period');
+                updatePricing(period);
+            });
+        });
+        
+         function notAvail(){
+            var alertMessage = alert("This is service is currently not available on our site ! We are willing to launch it as soon as possible");
+            alert(alertMessage);
+        }
+
+    </script>
+</body>
+</html>

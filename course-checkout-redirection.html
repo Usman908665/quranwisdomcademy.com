@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Course Checkout — Payment Proof</title>
+     <link rel="shortcut icon" href="logo.png" type="png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+                @font-face {
+            font-family: Aileron;
+            src: url(fonts/Aileron-Regular.otf);
+        }
+        body
+         { 
+            font-family: Aileron; 
+         }
+        /* Container & layout (targets your form by the web3forms action) */
+form[action*="web3forms"] {
+  max-width: 700px;
+  margin: 28px auto;
+  padding: 28px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(17, 24, 39, 0.08);
+  color: #0f172a;
+}
+
+/* Form elements baseline */
+form[action*="web3forms"] input[type="text"],
+form[action*="web3forms"] input[type="email"],
+form[action*="web3forms"] textarea {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  margin: 10px 0 18px 0;
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  border-radius: 10px;
+  transition: box-shadow .16s ease, border-color .16s ease, transform .12s ease;
+  resize: vertical;
+  min-height: 44px;
+}
+
+/* textarea slightly taller */
+form[action*="web3forms"] textarea {
+  min-height: 140px;
+  padding-top: 14px;
+}
+
+/* Placeholder styling */
+form[action*="web3forms"] ::placeholder {
+  color: #94a3b8;
+  opacity: 1;
+}
+
+/* Focus states — accessible and visible */
+form[action*="web3forms"] input:focus,
+form[action*="web3forms"] textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Button styling */
+form[action*="web3forms"] button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(99,102,241,0.12);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+/* Button hover / active */
+form[action*="web3forms"] button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(99,102,241,0.16);
+}
+
+form[action*="web3forms"] button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(99,102,241,0.12);
+}
+
+/* Disabled state */
+form[action*="web3forms"] button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Small helper / hint text (if you add spans or smalls later) */
+form[action*="web3forms"] .hint {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  margin-top: -6px;
+  margin-bottom: 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px) {
+  form[action*="web3forms"] {
+    padding: 18px;
+    margin: 18px;
+    border-radius: 12px;
+  }
+
+  form[action*="web3forms"] button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+    </style>
+</head>
+<body>
+<form action="https://api.web3forms.com/submit" method="POST">
+    <h1 style="font-size:30px;">Course or Plan Purchase - Payment Screenshot</h1>
+  <input type="hidden" name="access_key" value="3b71fc40-a9ee-4338-bcfc-02e9dd2ede12">
+  <input type="text" placeholder="Enter Course or Plan Name" name="name" required>
+  <input type="email" placeholder="Enter Email" name="email" required>
+  <textarea name="message" placeholder="Enter Drive Link (Payment Screenshot)" required></textarea>
+  <button type="submit">Submit</button>
+                    <div class="bg-green-100 mt-5 p-6 rounded-xl border border-green-200 text-green-800 flex items-start space-x-3">
+                        <svg class="w-6 h-6 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <div>
+                            <p class="font-semibold">Don't Forget To Make Payments in These Accounts</p>
+                            <br>
+                            <p class="text-sm">1. Meezan Bank - 99480107425652 :  Muhammed Hassan</p>
+                            <p class="text-sm">2. Binance Transaction - User10f0C :  Kamran Zain</p>
+                            <br>
+                            <p class="font semi-bold">Note÷</p>
+                            <p class="text-sm">The Payment screenshots are being reviewed under 4-5 business days , please wait for the Email approval to access the live session immediately</p>
+                        </div>
+                    </div>
+
+</form>
+</body>
+</html>

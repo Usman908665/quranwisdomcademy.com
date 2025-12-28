@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login</title>
+    <link rel="shortcut icon" href="logo.png" type="png">
+    <style>
+        @font-face {
+            font-family: Aileron;
+            src: url(fonts/Aileron-Regular.otf);
+            font-weight: 400;
+        }
+        :root {
+            --accent: #2b6cb0;
+            --bg: #fff;
+        }
+
+        body {
+            font-family: Aileron;
+            background: var(--bg);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh
+        }
+
+        .card {
+            background: #fff;
+            padding: 28px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            width: 360px
+        }
+
+        h2 {
+            margin: 0 0 12px 0;
+            color: #111;
+            font-size: 35px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #333
+        }
+
+        input {
+            width: 92%;
+            padding: 10px 12px;
+            margin: 8px 0 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            border-radius: 6px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer
+        }
+
+        .muted {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+            margin-top: 12px
+        }
+
+        .link {
+            color: var(--accent);
+            text-decoration: none
+        } 
+        h2 , p{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>Welcome Back</h2>
+        <p style="margin:0 0 12px 0;color:#555">Log in with your email and password.</p>
+
+        <label for="email">Email</label><br>
+        <input type="email" id="email" placeholder="you@example.com">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Your password">
+
+        <button id="loginBtn" class="btn">Log In</button>
+
+        <p class="muted">Don't have an account? <a class="link" href="signup.html">Sign up</a></p>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDxSPLFITcWaP6dHLfV2sPDJW-r5C8uPbs",
+            authDomain: "quran-wisdom-academy.firebaseapp.com",
+            projectId: "quran-wisdom-academy",
+            storageBucket: "quran-wisdom-academy.firebasestorage.app",
+            messagingSenderId: "325777889192",
+            appId: "1:325777889192:web:0441ab742d45ae53946f9d"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('loginBtn').addEventListener('click', async () => {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            if (!email || !password) { alert('Please enter email and password.'); return; }
+            try {
+                await signInWithEmailAndPassword(auth, email, password);
+                alert('Login successful. Redirecting to home.');
+                window.location.href = 'home.html';
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+    </script>
+
+</body>
+
+</html>

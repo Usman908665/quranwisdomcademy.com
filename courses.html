@@ -1,0 +1,480 @@
+<!-- HTML and Tailwind CSS for the Quran Academy Courses Page -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Courses - Quran Wisdom Academy</title>
+     <link rel="shortcut icon" href="logo.png" type="png">
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for graphics -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /*
+        * Font Simulation: Re-using the custom font loading setup.
+        */
+        @font-face {
+            font-family: Aileron;
+            src: url('fonts/Aileron-Regular.otf');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            font-family: Aileron;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Set custom colors using Tailwind configuration */
+        :root {
+            --color-primary: 27 94 32; /* Deep Green: #1B5E20 */
+            --color-secondary: 56 142 60; /* Medium Green: #388E3C */
+            --color-accent: 76 175 80; /* Light Green: #4CAF50 */
+        }
+        .filter-button.active {
+            @apply bg-primary text-white shadow-md;
+        }
+        .filter-button:not(.active) {
+            @apply bg-white text-text-dark border border-gray-300 hover:bg-bg-light;
+        }
+    </style>
+
+    <script>
+        // Custom Tailwind config to define the green color palette
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': 'rgb(var(--color-primary) / <alpha-value>)',
+                        'secondary': 'rgb(var(--color-secondary) / <alpha-value>)',
+                        'accent': 'rgb(var(--color-accent) / <alpha-value>)',
+                        'bg-light': '#f7f7f7',
+                        'text-dark': '#333333',
+                    },
+                    fontFamily: {
+                        sans: ['CustomFont', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bg-light text-text-dark antialiased">
+
+    <!-- Function to initialize Lucide Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
+
+      <!-- Top Contact Bar -->
+    <div class="bg-primary text-white text-xs py-2 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-end px-4 space-x-6">
+            <a href="tel:03153843745" class="flex items-center hover:text-accent transition duration-300">
+                <i data-lucide="phone" class="w-3 h-3 mr-1"></i>+923153843745
+            </a>
+            <a href="mailto:quranwisdomacademy78@gmail.com" class="flex items-center hover:text-accent transition duration-300">
+                <i data-lucide="mail" class="w-3 h-3 mr-1"></i> quranwisdomacademy78@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo (Cloned from image style) -->
+            <div class="text-2xl font-extrabold text-primary flex items-center">
+                 <img src="logo.png" alt="logo" width="90px" height="90px">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8 font-semibold text-text-dark/80">
+                <a href="index.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Home</a>
+                <a href="about.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">About Us</a>
+                <a href="services.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Services</a>
+                <a href="pricing.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Pricing</a>
+                <a href="contact.html" style="font-size: 19px;" class="hover:text-primary transition duration-300">Contact Us</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <a href="services.html" class="hidden md:block bg-primary text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-secondary transition duration-300">
+                Learn More
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-primary p-2 rounded-lg hover:bg-primary/10 transition duration-300">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-xl">
+            <nav class="flex flex-col space-y-2 p-4 font-semibold text-text-dark/80">
+                <a href="index.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Home</a>
+                <a href="about.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">About Us</a>
+                <a href="services.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Services</a>
+                <a href="pricing.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Pricing</a>
+                <a href="contact.html" class="block py-2 px-3 hover:bg-primary/10 rounded-lg transition duration-300">Contact Us</a>
+                <a href="services.html" class="block text-center mt-4 bg-primary text-white font-bold py-2 px-6 rounded-full hover:bg-secondary transition duration-300">
+                   Learn More
+                </a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Page Header / Hero -->
+    <section class="bg-primary pt-16 pb-20 md:pt-24 md:pb-32 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-accent font-medium mb-3 tracking-widest uppercase text-lg">Our Comprehensive Programs</p>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-snug md:leading-tight mb-4">
+                Structured Quran and Islamic Studies
+            </h1>
+            <p class="text-xl max-w-3xl mx-auto text-white/90">
+                Find the perfect path for you or your children, from foundational reading to advanced memorization and interpretation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Course Listing Section -->
+    <section id="courses" class="py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Filter/Search Controls -->
+        <div class="mb-12 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 p-4 bg-white rounded-xl shadow-lg border-t-4 border-accent">
+            <div class="w-full md:w-1/3">
+                <label for="search" class="sr-only">Search Courses</label>
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-400"></i>
+                    </div>
+                    <input type="text" id="search-input" placeholder="Search by name or level..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary transition duration-300">
+                </div>
+            </div>
+            
+            <div id="filter-buttons" class="flex flex-wrap gap-3">
+                <button data-filter="All" class="filter-button px-4 py-2 text-sm font-semibold rounded-full transition duration-300 active">
+                    All Courses
+                </button>
+                <button data-filter="Beginner" class="filter-button px-4 py-2 text-sm font-semibold rounded-full transition duration-300">
+                    Beginner
+                </button>
+                <button data-filter="Intermediate" class="filter-button px-4 py-2 text-sm font-semibold rounded-full transition duration-300">
+                    Intermediate
+                </button>
+                <button data-filter="Advanced" class="filter-button px-4 py-2 text-sm font-semibold rounded-full transition duration-300">
+                    Advanced
+                </button>
+            </div>
+        </div>
+
+        <!-- Course Grid Container (Dynamically populated by JS) -->
+        <div id="course-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Course cards will be injected here -->
+        </div>
+    </section>
+
+  
+    <!-- Final CTA Section (Dark Background) -->
+    <section class="bg-gray-800 text-white py-20 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center space-y-8 lg:space-y-0">
+            <div class="lg:w-2/3 text-center lg:text-left">
+                <h2 class="text-4xl font-extrabold mb-3 leading-tight">Let's Start Online Quran Learning</h2>
+                <p class="text-lg text-white/80">Join thousands of students worldwide and begin your journey to spiritual growth.</p>
+            </div>
+            <div class="lg:w-1/3 flex justify-center lg:justify-end">
+                <a href="courses.html" class="bg-accent text-white font-bold text-lg py-3 px-10 rounded-full shadow-xl hover:bg-secondary transition duration-300 transform hover:scale-105">
+                    View Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-10 border-b border-gray-700 pb-10">
+                <!-- Column 1: Logo & Info -->
+                <div class="col-span-2 md:col-span-2">
+                    <div class="text-3xl font-extrabold text-white mb-4 flex items-center">
+                      <img src="logo.png" alt="logo" width="100px" height="100px">
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm max-w-sm">
+                        Dedicated to providing high-quality, accessible Quranic education to the global community.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61584341424836" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="https://x.com/quran_wisd88311" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="https://www.instagram.com/qura_nwisdomacademy/" class="text-gray-400 hover:text-primary transition duration-300"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition duration-300">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-primary transition duration-300">Our Courses</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-primary transition duration-300">Pricing Plans</a></li>
+                         <li><a href="support.html" class="text-gray-400 hover:text-primary transition duration-300">Support</a></li>
+                        <li><a href="#articles" class="text-gray-400 hover:text-primary transition duration-300">Blogs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Contact Info</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <a href="mailto:quranwisdomacademy78@gmail.com" class="text-gray-400 hover:text-primary transition duration-300">quranwisdomacademy78 <br> @gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <a href="tel:03153843745" class="text-gray-400 hover:text-primary transition duration-300">+923153843745</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-4 h-4 mr-2 mt-1 text-primary flex-shrink-0"></i>
+                            <span class="text-gray-400">Karachi , Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4: Newsletter/CTA (Responsive) -->
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-white">Newsletter</h4>
+                    <p class="text-sm text-gray-400 mb-4">Stay updated with our latest offers.</p>
+                    <form>
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 mb-3 rounded-lg bg-gray-700 text-white border-none focus:ring-primary focus:border-primary">
+                        <button type="submit" onclick="notAvail()" class="w-full bg-primary text-white font-bold py-2 rounded-lg hover:bg-secondary transition duration-300">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center pt-8 text-sm text-gray-500">
+                &copy; 2025 Quran Wisdom Academy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle and Course Filtering/Searching -->
+    <script>
+        // --- Mobile Menu Toggle Logic ---
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 100); 
+            });
+        });
+
+        // --- Course Data (Centralized for Filtering) ---
+        const coursesData = [
+            {
+                id: 1,
+                title: "Quran Memorization",
+                level: "Advanced",
+                description: "A Quran Memorization Course, often called a Hifz program (from the Arabic word “Hifz” meaning “preservation” or “memorization”), is a structured educational program designed to help individuals memorize the entire Holy Quran or significant portions of it.",
+                duration: "2-5 Years",
+                tutor: "Muhammed Hassan",
+                image: "images/quran-memorization.jpg",
+                ctaText: "Purchase Course",
+                price: "$35.40 / Month",
+            },
+            {
+                id: 2,
+                title: "Quran Reading (Tajweed)",
+                level: "Intermediate",
+                description: "Tajweed course is a program designed to teach you how to read the Holy Quran perfectly and beautifully. Tajweed courses are available for learning the rules of Quranic recitation",
+                duration: "6-9 Months",
+                tutor: "Muhammed Hassan",
+                image: "images/tajweed.jpg",
+                ctaText: "Purchase Course",
+                price: "$35.40 / Month",
+            },
+            {
+                id: 3,
+                title: "Quran Recitation Program",
+                level: "Advanced",
+                description: "Quran Recitation Course is a special program designed to teach you how to read and recite the Holy Quran smoothly, accurately, and beautifully. It’s all about getting comfortable with the Arabic script and applying the correct pronunciation rules, known as Tajweed (تجويد).",
+                duration: "Flexible (2-5 Years)",
+                tutor: "Muhammed Hassan",
+                image: "images/quran-recitation.jpg",
+                ctaText: "Purchase Course",
+                price: "$35.40 / Month",
+            },
+            {
+                id: 4,
+                title: "Noorani Qaida",
+                level: "Beginner",
+                description: "Are you ready to unlock the beauty and precision of Quranic recitation? The Noorani Qaida Course is the perfect starting point for anyone, whether you’re a complete beginner, a child, or an adult non-Arabic speaker, looking to read the Holy Quran with proper pronunciation and fluency.",
+                duration: "4 Months",
+                tutor: "Scholars",
+                image: "images/noorani-quida.jpg",
+                ctaText: "Purchase Course",
+                price: "$35.40 / Month",
+            },
+            {
+                id: 5,
+                title: "Seerat Course Program",
+                level: "Advanced",
+                description: "Study the basics of seerat of Prophet (P.B.U.H), learn the seerat from basic to advance in very reasonable prices. Seerat course helps you to develop the love for Prophet (P.B.U.H) in your hearts and also it makes your beleive more stronger on the cast of Prophet (P.B.U.H)",
+                duration: "1 Year+",
+                tutor: "Muhammed Hassan",
+                image: "images/seerat.jpg",
+                ctaText: "Purchase Course",
+                price: "$35.40 / Month",
+            },
+             {
+                id: 6,
+                title: "Tafseer Course Program",
+                level: "Advanced",
+                description: "Quran Tafsir Course is an educational program dedicated to the in-depth explanation and interpretation of the Holy Quran. The term “Tafsir” (تفسير) itself is Arabic for exegesis or interpretation",
+                duration: "6-9 Months",
+                tutor: "Muhammed Hassan",
+                image: "images/tafseer.jpg",
+                ctaText: "Purchase Course",
+                price: "$35.40 / Month",
+            },
+        ];
+
+        // --- Filtering and Searching Logic ---
+        const courseGrid = document.getElementById('course-grid');
+        const searchInput = document.getElementById('search-input');
+        const filterButtons = document.querySelectorAll('.filter-button');
+
+            let currentFilter = 'All';
+            let currentSearchTerm = '';
+
+            /**
+             * Generates the HTML string for a single course card.
+             * @param {Object} course - The course data object.
+             * @returns {string} The HTML string for the course card.
+             */
+            const createCourseCard = (course) => {
+                return `
+                <div class="bg-white rounded-xl shadow-2xl overflow-hidden transition duration-500 hover:shadow-primary/30 hover:scale-[1.02]">
+                    <img src="${course.image}" alt="${course.title}" class="w-full h-48 object-cover border-b-4 border-accent" onerror="this.onerror=null;this.src='https://placehold.co/600x300/1B5E20/ffffff?text=Image+Error';">
+                    <div class="p-6">
+                    <h3 class="text-2xl font-extrabold text-text-dark mb-2">${course.title}</h3>
+                    <p class="text-gray-600 mb-4 text-sm">${course.description}</p>
+
+                    <div class="space-y-3 mb-6 text-sm text-gray-700">
+                        <div class="flex items-center">
+                        <i data-lucide="feather" class="w-4 h-4 text-primary mr-3 flex-shrink-0"></i> 
+                        Level: <span class="font-semibold ml-1 text-primary">${course.level}</span>
+                        </div>
+                        <div class="flex items-center">
+                        <i data-lucide="user-check" class="w-4 h-4 text-primary mr-3 flex-shrink-0"></i> 
+                        Tutor Name: <span class="font-semibold ml-1">${course.tutor}</span>
+                        </div>
+                        <div class="flex items-center">
+                        <i data-lucide="clock-3" class="w-4 h-4 text-primary mr-3 flex-shrink-0"></i> 
+                        Duration: <span class="font-semibold ml-1">${course.duration}</span>
+                        </div>
+                        <div class="flex items-center">
+                        <i data-lucide="dollar-sign" class="w-4 h-4 text-primary mr-3 flex-shrink-0"></i> 
+                        Price: <span class="font-semibold ml-1 text-accent">${course.price}</span>
+                        </div>
+                    </div>
+                    
+                    <a href="course-checkout-redirection.html" class="block text-center bg-primary text-white font-bold py-3 rounded-full hover:bg-secondary transition duration-300 shadow-lg">
+                        ${course.ctaText}
+                    </a>
+                    </div>
+                </div>
+                `;
+            };
+
+        /**
+         * Renders the courses to the grid based on the filtered array.
+         * @param {Array} filteredCourses - The array of courses to display.
+         */
+        const renderCourses = (filteredCourses) => {
+            courseGrid.innerHTML = '';
+            if (filteredCourses.length === 0) {
+                courseGrid.innerHTML = `
+                    <div class="sm:col-span-2 lg:col-span-3 text-center p-10 bg-white rounded-xl shadow-inner text-gray-600">
+                        <i data-lucide="info" class="w-8 h-8 mx-auto mb-3 text-secondary"></i>
+                        <p class="text-xl font-semibold">No courses found matching your criteria.</p>
+                        <p>Try adjusting your search term or selecting a different filter.</p>
+                    </div>
+                `;
+            } else {
+                filteredCourses.forEach(course => {
+                    courseGrid.innerHTML += createCourseCard(course);
+                });
+            }
+            // Re-render Lucide icons for the newly injected HTML
+            lucide.createIcons();
+        };
+
+        /**
+         * Main function to apply current filters and search term.
+         */
+        const applyFilters = () => {
+            let filtered = coursesData.filter(course => {
+                // 1. Filter by Category Level
+                const levelMatch = currentFilter === 'All' || course.level === currentFilter;
+
+                // 2. Filter by Search Term (case-insensitive)
+                const searchLower = currentSearchTerm.toLowerCase();
+                const searchMatch = course.title.toLowerCase().includes(searchLower) ||
+                                    course.description.toLowerCase().includes(searchLower) ||
+                                    course.level.toLowerCase().includes(searchLower);
+                
+                return levelMatch && searchMatch;
+            });
+
+            renderCourses(filtered);
+        };
+
+        // --- Event Listeners ---
+
+        // 1. Category Filtering
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active state in UI
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Update current filter and re-apply
+                currentFilter = button.getAttribute('data-filter');
+                applyFilters();
+            });
+        });
+
+        // 2. Search Input
+        searchInput.addEventListener('input', () => {
+            // Update current search term and re-apply
+            currentSearchTerm = searchInput.value.trim();
+            applyFilters();
+        });
+
+
+        // Initial load: Render all courses
+        document.addEventListener('DOMContentLoaded', () => {
+            applyFilters();
+        });
+
+        function notAvail(){
+            var alertMessage = alert("This is service is currently not available on our site ! We are willing to launch it as soon as possible");
+            alert(alertMessage);
+        }
+    </script>
+</body>
+</html>
